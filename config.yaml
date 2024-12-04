@@ -1,0 +1,37 @@
+path:
+  ASVspoof2019LA: /data1/datasets/ASVspoof2019/LA/
+  ASVspoof2021LA: /data1/datasets/ASVspoof2021/ASVspoof2021_LA_eval/
+  ASVspoof2021DF: /data1/datasets/ASVspoof2021/ASVspoof2021_DF_eval/
+  In-the-Wild: /data2/datasets/In-the-Wild/release_in_the_wild/
+
+
+preprocessing:
+  mel:
+    num_mels: 80
+    n_fft: 1024
+    hop_size: 200
+    win_size: 800
+    sampling_rate: 16000
+    fmin: 0
+    fmax: 8000
+
+
+train:
+  exp_name: RawNet2
+  batch_size: 32
+  num_epochs: 100
+  num_workers: 4
+  max_len: 64600
+  check_val_every_n_epoch: 4
+  seed: 1234
+  save_top_k: 1
+
+eval:
+  datasets:
+    - In-the-Wild
+
+
+optimizer:
+  name: Adam
+  lr: 1e-4
+  weight_decay: 1e-4
