@@ -174,7 +174,7 @@ class ASVspoofEval(L.LightningDataModule):
         self.dataloaderArgs = dataloaderArgs
 
     def setup(self, stage: str):
-        self.testset = ASVspoofEvalDataset(self.base_dir, self.protocol_dir)
+        self.testset = ASVspoofEvalDataset(self.base_dir, self.protocol_dir, max_len=self.max_len)
 
     def test_dataloader(self):
         return DataLoader(self.testset, shuffle=False, **self.dataloaderArgs)
@@ -225,7 +225,7 @@ class IntheWild(L.LightningDataModule):
         self.dataloaderArgs = dataloaderArgs
 
     def setup(self, stage: str):
-        self.testset = IntheWildDataset(self.base_dir, self.protocol_dir)
+        self.testset = IntheWildDataset(self.base_dir, self.protocol_dir, max_len=self.max_len)
 
     def test_dataloader(self):
         return DataLoader(self.testset, shuffle=False, **self.dataloaderArgs)

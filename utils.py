@@ -193,8 +193,7 @@ def calculate_tDCF_EER_21LA(score_file, truth_dir, output_file=None):
 
     if output_file is not None:
         with open(output_file, "w") as f:
-            f.write("min_tDCF: %.4f\n" % min_tDCF)
-            f.write("eer: %.2f%\n" % (100 * eer_cm))
+            f.write(out_data)
 
     return min_tDCF
 
